@@ -11,32 +11,29 @@ def open_whatsapp():
     pyautogui.write('WhatsApp')
     time.sleep(1)
     pyautogui.press('enter')
-    time.sleep(5)
+    time.sleep(5)  # Give time for WhatsApp to open
 
 def select_contact(contact_name):
     # Open the search box in WhatsApp
+    pyautogui.hotkey('ctrl', 'f')  # Open search bar
     time.sleep(1)
-    pyautogui.write(contact_name)
-    time.sleep(2)  # Allow time for search results to appear
+    pyautogui.write(contact_name)  # Type the contact name
+    time.sleep(2)  # Wait for search results to appear
 
-    contact_select = (200, 200)  
-    pyautogui.click(contact_select)
-    
-    # Select the first contact from the search results
-    pyautogui.press('enter')
-    time.sleep(2)
+    # Use keyboard navigation to select the first contact in the search results
+    pyautogui.press('down')  # Navigate to the first search result
+    time.sleep(1)  # Short delay to ensure navigation
+    pyautogui.press('enter')  # Select the contact
+    time.sleep(2)  # Wait for the chat to open
 
 def send_message(message):
-    # Type the message and press enter
-    message_box_position = (400, 800)  
-    pyautogui.click(message_box_position)
-
+    # Type the message and press Enter to send
     pyautogui.write(message)
     pyautogui.press('enter')
 
 contact_name = 'Edd'
-message_to_send = "Hello, how are you?"
+message = "Hello, how are you?"
 
-open_whatsapp()
-select_contact(contact_name)
-send_message(message_to_send)
+open_whatsapp()  # Open WhatsApp
+select_contact(contact_name)  # Search and click contact chat
+send_message(message)  # Send the message
