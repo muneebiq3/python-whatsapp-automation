@@ -19,11 +19,11 @@ def select_contact(contact_name):
     time.sleep(1)
     pyautogui.write(contact_name)  # Type the contact name
     time.sleep(2)  # Wait for search results to appear
-
-    # Use keyboard navigation to select the first contact in the search results
-    pyautogui.press('down')  # Navigate to the first search result
-    time.sleep(1)  # Short delay to ensure navigation
-    pyautogui.press('enter')  # Select the contact
+    
+    # Click on the first contact in the search result
+    # You may need to adjust these coordinates based on your screen resolution and WhatsApp layout.
+    contact_position = (935, 232)  # Coordinates for the first contact in search results
+    pyautogui.click(contact_position)  # Click on the contact
     time.sleep(2)  # Wait for the chat to open
 
 def send_message(message):
@@ -31,9 +31,10 @@ def send_message(message):
     pyautogui.write(message)
     pyautogui.press('enter')
 
-contact_name = 'Edd'
-message = "Hello, how are you?"
+# Main script
+contact_name = input("Enter the contact name: ")  # Get contact name from the user
+message = input("Enter the message: ")  # Get message from the user
 
-open_whatsapp()  # Open WhatsApp
-select_contact(contact_name)  # Search and click contact chat
-send_message(message)  # Send the message
+open_whatsapp()  
+select_contact(contact_name)  
+send_message(message)
