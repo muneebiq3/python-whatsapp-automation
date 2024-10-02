@@ -36,3 +36,5 @@ message = "This is an automated message"
 open_whatsapp() 
 select_contact(contact_name) 
 send_message(message)
+time.sleep(2)
+pyautogui.hotkey('alt', 'f4') 
